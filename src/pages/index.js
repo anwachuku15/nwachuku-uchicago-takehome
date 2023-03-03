@@ -9,15 +9,13 @@ const Home = () => {
 	const displayHelloWorld = () => {
 		setShowGreeting(!showGreeting);
 	};
+
 	return (
 		<Container>
 			<Button
 				text="Click"
 				icon={
-					<span
-						class="glyphicon glyphicon-globe"
-						style={{ fontSize: 24 }}
-					></span>
+					<i class="glyphicon glyphicon-globe" style={{ fontSize: 24 }}></i>
 				}
 				_page="home"
 				_onClick={displayHelloWorld}

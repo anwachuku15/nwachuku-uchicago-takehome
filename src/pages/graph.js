@@ -6,15 +6,15 @@ import * as d3 from "d3";
 const Graph = () => {
 	const svgRef = useRef();
 
-	const width = 480;
-	const height = 150;
-
 	const _svg = useRef();
 	const _generateScaledLine = useRef();
 
-	const graphData = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55];
+	const fibonacciData = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55];
 
 	useEffect(() => {
+		const width = 480;
+		const height = 150;
+
 		// SETUP SVG
 		_svg.current = d3
 			.select(svgRef.current)
@@ -29,14 +29,14 @@ const Graph = () => {
 		// X & Y SCALES
 		const xScale = d3
 			.scaleLinear()
-			.domain([0, graphData.length - 1])
+			.domain([0, fibonacciData.length - 1])
 			.range([0, width]);
 		const yScale = d3.scaleLinear().domain([0, 60]).range([height, 0]);
 
 		// X & Y AXIS
 		const xAxis = d3
 			.axisBottom(xScale)
-			.ticks(graphData.length)
+			.ticks(fibonacciData.length)
 			.tickFormat((i) => i);
 		const yAxis = d3.axisLeft(yScale).ticks(5);
 
@@ -65,7 +65,7 @@ const Graph = () => {
 			.text("fibonacci(n)")
 			.style("font-style", "italic");
 
-		// DRAW LINE
+		// GENERATE LINE SHAPE
 		_generateScaledLine.current = d3
 			.line()
 			.x((d, i) => xScale(i))
@@ -77,14 +77,12 @@ const Graph = () => {
 		// DATA FOR SVG
 		_svg.current
 			.selectAll(".line")
-			.data([graphData])
+			.data([fibonacciData])
 			.join("path")
 			.attr("d", (d) => _generateScaledLine.current(d))
 			.attr("fill", "none")
 			.attr("stroke", "#1E90FF");
 	};
-
-	const Chart = () => <svg ref={svgRef} style={{}}></svg>;
 
 	return (
 		<Container>
@@ -100,7 +98,7 @@ const Graph = () => {
 				page="graph"
 				_onClick={drawGraph}
 			/>
-			<Chart />
+			<svg ref={svgRef}></svg>
 		</Container>
 	);
 };

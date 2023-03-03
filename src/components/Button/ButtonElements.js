@@ -35,6 +35,7 @@ export const BtnText = styled.p`
 	}};
 	font-size: 24px;
 	transition: color 150ms ease;
+
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
@@ -51,6 +52,7 @@ export const Icon = styled.div`
 	color: transparent;
 	opacity: 0;
 	transition: all 200ms;
+
 	${BtnWrapper}:hover & {
 		margin-left: 10px !important;
 		color: #1e90ff;

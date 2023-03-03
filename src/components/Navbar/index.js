@@ -1,7 +1,7 @@
 import React from "react";
 import { NavContainer, NavMenu, MenuItem, MenuLink } from "./NavbarElements";
 
-const Navbar = ({ toggleHome }) => {
+const Navbar = () => {
 	return (
 		<NavContainer>
 			<NavMenu>

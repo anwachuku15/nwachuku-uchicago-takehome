@@ -10,6 +10,7 @@ export const GreetingText = styled.p`
 	transition: opacity 300ms ease-in-out;
 	opacity: ${({ isShown }) => (isShown ? 1 : 0)};
 	cursor: default;
+
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	user-select: none;

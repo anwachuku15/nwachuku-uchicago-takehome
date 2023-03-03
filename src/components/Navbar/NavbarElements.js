@@ -32,6 +32,7 @@ export const MenuItem = styled.li`
 
 export const MenuLink = styled(NavLink)`
 	color: white;
+	font-size: 24px;
 	display: flex;
 	align-items: center;
 	text-decoration: none !important;
